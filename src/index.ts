@@ -1,4 +1,7 @@
 import TelegramBot from 'node-telegram-bot-api';
+import express from 'express';
+
+const app = express();
 
 const bot = new TelegramBot("1348684083:AAF9r7ujg0xJvDnCMwBKj6fkLy81vsRsBZw", {polling: true});
 
@@ -22,4 +25,8 @@ bot.on('text', async (msg) => {
             reply_to_message_id: msg.message_id
         })
     }
+})
+
+app.listen(process.env.PORT || 5000, ()=>{
+    console.log("server running")
 })
